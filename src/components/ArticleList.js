@@ -1,19 +1,15 @@
 import React from "react";
 import Article from "./Article";
 
-function ArticleList(props) {
-  const articles = props.articles ? props.articles.map((article) => (
-    <Article
-
-      key={article.id}
-      title={article.title}
-      date={article.date}
-      preview={article.preview}
-      minutes={article.minutes}
-    />
-  )) : [3];
-
-  return <main>{articles}</main>;
+function ArticleList({ posts }) {
+  return (
+    <main>
+      {posts.map(post => (
+        <Article key={post.id} title={post.title} content={post.content} />
+      ))}
+    </main>
+  );
 }
 
 export default ArticleList;
+
